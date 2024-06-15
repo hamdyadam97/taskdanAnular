@@ -1,0 +1,6 @@
+<form [formGroup]="verifyForm" (ngSubmit)="verify()">
+  <label>Verification Code:</label>
+  <input type="text" formControlName="verificationCode" required />
+
+  <button type="submit">Verify</button>
+</form>

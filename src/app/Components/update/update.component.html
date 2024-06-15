@@ -1,0 +1,25 @@
+<form [formGroup]="updateForm" (ngSubmit)="update()">
+  <div *ngIf="currentStep === 'phone'">
+    <label>Phone Number:</label>
+    <input type="text" formControlName="phoneNumber" required />
+
+    <label>Phone Country Code:</label>
+    <input type="text" formControlName="phoneCountryCode" required />
+
+    <button type="button" (click)="nextStep()">Next</button>
+  </div>
+
+  <div *ngIf="currentStep === 'namePassword'">
+    <label>Full Name:</label>
+    <input type="text" formControlName="fullName" required />
+
+    <label>New Password:</label>
+    <input type="password" formControlName="newPassword" required />
+
+    <button type="button" (click)="nextStep()">Next</button>
+  </div>
+
+  <!-- Add other steps/forms as needed -->
+
+  <button type="submit">Update</button>
+</form>

@@ -1,0 +1,27 @@
+<div>
+  <app-side-menu></app-side-menu>
+  <!-- Assuming you have SideMenu component -->
+
+  <h2>User List</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Display Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Active</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.display_name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone_number }}</td>
+        <td>{{ user.is_active ? "Yes" : "No" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

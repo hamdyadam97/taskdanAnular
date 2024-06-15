@@ -1,0 +1,60 @@
+<div>
+  <app-side-menu></app-side-menu>
+  <!-- Assuming you have SideMenu component -->
+
+  <h1>User Section</h1>
+  <div style="margin-top: 20px">
+    <div>
+      <button (click)="handleFileClick()">File</button>
+      <button (click)="handleAgreementClick()">Agreement</button>
+      <button (click)="handleSettingsClick()">General Settings</button>
+      <button (click)="fetchUsers()">User Details</button>
+    </div>
+    <div *ngIf="selectedUser" style="margin-top: 20px">
+      <h2>Selected User Details:</h2>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td>ID:</td>
+            <td>{{ selectedUser.id }}</td>
+          </tr>
+          <tr>
+            <td>Display Name:</td>
+            <td>{{ selectedUser.display_name }}</td>
+          </tr>
+          <tr>
+            <td>Email:</td>
+            <td>{{ selectedUser.email }}</td>
+          </tr>
+          <tr>
+            <td>Phone Number:</td>
+            <td>{{ selectedUser.phone_number }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top: 20px">
+      <div *ngIf="displayContent" [innerHTML]="displayContent"></div>
+    </div>
+  </div>
+  <div *ngIf="show" style="margin-top: 20px">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Display Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users" (click)="handleUserClick(user)">
+          <td>{{ user.id }}</td>
+          <td>{{ user.display_name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone_number }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
